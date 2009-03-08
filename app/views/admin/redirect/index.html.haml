@@ -1,0 +1,15 @@
+%h1 Redirections
+
+%p Allows you to set permanent or temporary redirections.
+
+%table
+  %tr
+    %th From URL
+    %th To URL
+    %th Type
+
+  - @redirections.each do |redirect|
+    %tr
+      %td= redirect.from_url
+      %td= redirect.to_url
+      %td= redirect.temporary? ? 'Temporary' : 'Permanent' 
