@@ -6,11 +6,11 @@ class RedirectExtension < Radiant::Extension
   description "Manages a list of 30x redirects"
   url "http://github.com/edgerunner/radiant-redirect-extension"
   
-  # define_routes do |map|
-  #   map.namespace :admin, :member => { :remove => :get } do |admin|
-  #     admin.resources :redirect
-  #   end
-  # end
+  define_routes do |map|
+   map.namespace :admin, :member => { :remove => :get } do |admin|
+      admin.resources :redirect
+    end
+  end
   
   def activate
     admin.tabs.add "Redirect", "/admin/redirect", :after => "Layouts", :visibility => [:all]
