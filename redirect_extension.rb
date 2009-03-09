@@ -14,6 +14,11 @@ class RedirectExtension < Radiant::Extension
   
   def activate
     admin.tabs.add "Redirect", "/admin/redirect", :after => "Layouts", :visibility => [:all]
+    
+    SiteController.class_eval do
+      include Redirect::Filters
+      before_filter :redirect_if_listed
+    end
   end
   
   def deactivate
