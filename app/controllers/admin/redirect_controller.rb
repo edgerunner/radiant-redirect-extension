@@ -13,7 +13,7 @@ class Admin::RedirectController < Admin::ResourceController
   end
   
   def announce_validation_errors
-    flash[:error] = 'Please check your input'
+    flash[:error] = "Please check your input: " + @redirection.errors.full_messages.to_sentence
   end  
 
 end
